@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build:
+  test:
     docker:
       - image: maven:3.6-jdk-12
     steps:
@@ -8,3 +8,14 @@ jobs:
       - run:
           name: Build and Unit tests
           command: mvn clean verify
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run: 'docker build . -t apresentacao-circle-ci:latest'
+workflows:
+  version: 2
+  default_workflow:
+    jobs:
+      - test
+      - build
