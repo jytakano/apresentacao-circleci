@@ -24,7 +24,7 @@ class AtivoTest {
     }
 
     @Test void dadoUmNovoAtivo_quandoRecuperarSeuId_naoDeveSerNulo(){
-        Ativo ativo = new Ativo("MCX-2000");
+        Ativo ativo = new Ativo("MCX-2000 ");
         assertNotNull(ativo.getId());
     }
 
